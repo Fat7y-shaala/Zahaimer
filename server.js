@@ -4,9 +4,12 @@ const morgan = require("morgan");
 
 const app = express();
 const dotenv = require("dotenv");
+const cors = require("cors");
+const compression = require("compression");
 const ApiError = require("./utils/apiError");
 const globalError = require("./middleWares/errorMiddleware");
 const dbConnection = require("./config/database");
+
 
 //Routes
 const personRoute = require("./routes/personRoutes");
@@ -23,6 +26,9 @@ dbConnection();
 //middlewares
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "uploads")));
+app.use(cors());
+app.use(compression());
+
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
