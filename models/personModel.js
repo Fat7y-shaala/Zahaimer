@@ -18,7 +18,7 @@ const personSchema = new mongoose.Schema(
       required: [true, "required"],
     },
 
-    adress: {
+    address: {
       type: String,
       required: [true, "required"],
     },

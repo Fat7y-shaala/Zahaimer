@@ -29,7 +29,7 @@ exports.createPersonValidator = [
     .withMessage("too short")
     .isLength({ max: 70 }),
 
-  check("adress")
+  check("address")
     .notEmpty()
     .withMessage("required")
     .isLength({ min: 5 })
