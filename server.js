@@ -29,6 +29,10 @@ if (process.env.NODE_ENV === "development") {
   console.log(`mode : ${process.env.NODE_ENV}`);
 }
 
+app.get("/test", (req, res) => {
+  res.send("Hello World!");
+});
+
 //mount route
 app.use("/api/v1/persons", personRoute);
 app.use("/api/v1/notes", noteRoute);
