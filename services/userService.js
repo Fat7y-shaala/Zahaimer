@@ -11,7 +11,7 @@ const createToken = require("../utils/createToken");
 const User = require("../models/userModel");
 
 // upload single image
-exports.uploadUserImage = uploadSingleImage("profileImg");
+exports.uploadUserImage = uploadSingleImage("image");
 
 //image processing
 exports.resizeImage = asyncHandler(async (req, res, next) => {

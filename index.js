@@ -10,7 +10,6 @@ const ApiError = require("./utils/apiError");
 const globalError = require("./middleWares/errorMiddleware");
 const dbConnection = require("./config/database");
 
-
 //Routes
 const personRoute = require("./routes/personRoutes");
 const noteRoute = require("./routes/noteRoute");
@@ -18,6 +17,7 @@ const alarmRoute = require("./routes/alarmRoutes");
 const patientRoute = require("./routes/patientRoutes");
 const userRoutes = require("./routes/userRoutes");
 const authRoutes = require("./routes/authRoutes");
+//const uploadRoute = require("./services/routeUpload");
 
 dotenv.config({ path: "config.env" });
 // database connection
@@ -28,7 +28,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "uploads")));
 app.use(cors());
 app.use(compression());
-
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -46,6 +45,7 @@ app.use("/api/v1/alarms", alarmRoute);
 app.use("/api/v1/patients", patientRoute);
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/auth", authRoutes);
+//app.use("/api/v1/users", uploadRoute);
 
 app.all("*", (req, res, next) => {
   next(new ApiError(`can't find this route : ${req.originalUrl}`, 400));

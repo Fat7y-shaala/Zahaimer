@@ -21,8 +21,8 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
     },
 
-    age: String,
-    profileImg: String,
+    age : Number,
+    image : String,
 
     password: {
       type: String,

@@ -45,7 +45,7 @@ exports.createUserValidator = [
     .notEmpty()
     .withMessage("password confirmation required"),
 
-  check("profileImg").optional(),
+  check("image").optional(),
   check("role").optional(),
 
   check("age").isNumeric().withMessage("invalide age"),
@@ -77,7 +77,7 @@ exports.updateUserValidator = [
         }
       })
     ),
-  check("profileImg").optional(),
+  check("image").optional(),
   check("role").optional(),
   check("age").isNumeric().withMessage("invalid age"),
 
