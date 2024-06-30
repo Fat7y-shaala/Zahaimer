@@ -45,7 +45,7 @@ app.use("/api/v1/alarms", alarmRoute);
 app.use("/api/v1/patients", patientRoute);
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/auth", authRoutes);
-//app.use("/api/v1/users", uploadRoute);
+//app.use("/api/v1/users/upload", uploadRoute);
 
 app.all("*", (req, res, next) => {
   next(new ApiError(`can't find this route : ${req.originalUrl}`, 400));
